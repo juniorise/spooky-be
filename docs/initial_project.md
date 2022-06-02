@@ -14,6 +14,7 @@ rails db:create
 # integer
 # text
 rails generate model Product title:string description:text price:decimal currency:string
+rails generate model UserIdentityProvider user_id:integer identity_type:string firebase_uid:string
 
 # more files 
 rails generate scaffold Product title:string description:text price:decimal currency:string
