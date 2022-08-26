@@ -9,6 +9,5 @@ Rails.application.routes.draw do
       root to: "relax_sound_categories#index"
     end
   draw(:api)
-  draw(:admin)
   draw(:frontend)
 end
