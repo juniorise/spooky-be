@@ -1,0 +1,53 @@
+<%= form_with(model: relax_sound) do |form| %>
+  <% if relax_sound.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(relax_sound.errors.count, "error") %> prohibited this relax_sound from being saved:</h2>
+
+      <ul>
+        <% relax_sound.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :relax_sound_category_id, style: "display: block" %>
+    <%= form.text_field :relax_sound_category_id %>
+  </div>
+
+  <div>
+    <%= form.label :relax_sound_author_id, style: "display: block" %>
+    <%= form.text_field :relax_sound_author_id %>
+  </div>
+
+  <div>
+    <%= form.label :icon, style: "display: block" %>
+    <%= form.text_field :icon %>
+  </div>
+
+  <div>
+    <%= form.label :license, style: "display: block" %>
+    <%= form.text_field :license %>
+  </div>
+
+  
+  <div>
+  <%= form.label :color_of_day, style: "display: block" %>
+  <%= form.number_field :color_of_day %>
+  </div>
+
+  <div>
+    <%= form.label :downloadable_url, style: "display: block" %>
+    <%= form.text_field :downloadable_url %>
+  </div>
+
+  <div>
+    <%= form.label :active, style: "display: block" %>
+    <%= form.check_box :active %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_02_135404) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_26_140020) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,4 +23,47 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_135404) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "relax_sound_authors", force: :cascade do |t|
+    t.string "name"
+    t.string "page_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relax_sound_categories", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relax_sound_translations", force: :cascade do |t|
+    t.string "locale"
+    t.string "name"
+    t.string "description"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "relax_sound_id"
+    t.index ["relax_sound_id"], name: "index_relax_sound_translations_on_relax_sound_id"
+  end
+
+  create_table "relax_sounds", force: :cascade do |t|
+    t.bigint "relax_sound_category_id"
+    t.bigint "relax_sound_author_id"
+    t.string "icon"
+    t.string "license"
+    t.integer "color_of_day"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "downloadable_url"
+    t.index ["relax_sound_author_id"], name: "index_relax_sounds_on_relax_sound_author_id"
+    t.index ["relax_sound_category_id"], name: "index_relax_sounds_on_relax_sound_category_id"
+  end
+
+  add_foreign_key "relax_sound_translations", "relax_sounds"
+  add_foreign_key "relax_sounds", "relax_sound_authors"
+  add_foreign_key "relax_sounds", "relax_sound_categories"
 end

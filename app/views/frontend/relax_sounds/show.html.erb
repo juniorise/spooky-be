@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @relax_sound %>
+
+<div>
+  <%= link_to "Edit this relax sound", edit_relax_sound_path(@relax_sound) %> |
+  <%= link_to "Back to relax sounds", relax_sounds_path %>
+
+  <%= button_to "Destroy this relax sound", @relax_sound, method: :delete %>
+</div>
