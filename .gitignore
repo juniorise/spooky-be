@@ -31,4 +31,5 @@
 /config/master.key
 
 vendor/cache
+vendor/bundle
 .env
