@@ -1,8 +1,8 @@
 module Api
   module V1
-    class ProductsController < Api::V1::BaseController
+    class ProductsController < Api::V1::ResourceController
       def collection
-        Product.all
+        Product.page(page)
       end
 
       def collection_serializer

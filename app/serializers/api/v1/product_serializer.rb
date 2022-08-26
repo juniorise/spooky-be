@@ -1,7 +1,6 @@
 module Api
   module V1
-    class ProductSerializer
-      include JSONAPI::Serializer
+    class ProductSerializer < Api::V1::BaseSerializer
       attributes :title, :description, :price, :currency
     end
   end
