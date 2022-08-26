@@ -1,0 +1,2 @@
+module RelaxSoundsHelper
+end
