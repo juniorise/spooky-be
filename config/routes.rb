@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
   
   draw(:api)
+  draw(:frontend)
 end
