@@ -1,0 +1,14 @@
+<h1>Relax Sound Image#new</h1>
+<%= form_with url: "/relax_sound_images" do |form| %>
+  <div>
+    <%= form.label :alt, "Alt" %>
+    <%= form.text_field :alt %>
+  </div>
+  <div>
+    <%= form.label :file, "File" %>
+    <%= form.file_field :file %>
+  </div>
+  <div>
+    <%= form.submit "Submit" %>
+  </div>
+<% end %>
